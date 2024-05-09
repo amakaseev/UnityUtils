@@ -26,7 +26,7 @@ namespace UnityUtils {
     }
 
     void LateUpdate() {
-      rt.anchoredPosition = (objectToFollow.position + offset).WorldToCanvas(canvasRect, mainCamera);
+      rt.anchoredPosition = Vector3Extensions.WorldToCanvas(objectToFollow.position + offset, canvasRect, mainCamera);
     }
 
     public void SetFollow(Transform transform) {

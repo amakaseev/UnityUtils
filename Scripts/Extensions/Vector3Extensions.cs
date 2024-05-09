@@ -3,7 +3,7 @@
 namespace UnityUtils {
 
   public static class Vector3Extensions {
-    static public Vector2 WorldToCanvas(this Vector3 worldPosition, RectTransform canvasRect, Camera camera) {
+    static public Vector2 WorldToCanvas(Vector3 worldPosition, RectTransform canvasRect, Camera camera) {
       var viewport_position = camera.WorldToViewportPoint(worldPosition);
 
       return new Vector2(
