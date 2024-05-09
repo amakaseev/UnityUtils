@@ -1,11 +1,12 @@
 {
   "name": "com.amakaseev.unityutils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Unity Utils",
   "description": "This is an unity utils package",
   "unity": "2019.1",
   "licensesUrl": "https://example.com/licensing.html",
   "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
   },
   "author": {
     "name": "Aleksey Makaseev",
