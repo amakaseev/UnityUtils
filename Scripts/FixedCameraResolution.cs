@@ -1,8 +1,8 @@
 using UnityEngine;
 
 namespace UnityUtils {
-
-  [RequireComponent(typeof(Camera))]
+  
+  [ExecuteInEditMode][RequireComponent(typeof(Camera))]
   public class FixedCameraResolution: MonoBehaviour {
     [SerializeField] float horizontalFOV = 120;
     [SerializeField] float defaultAspect = 3;
