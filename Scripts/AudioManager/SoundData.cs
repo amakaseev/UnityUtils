@@ -7,6 +7,7 @@ namespace UnityUtils {
     public AudioClip sound;
     public bool randomPitch = true;
     public bool randomVolume = true;
+    [Range(0, 1)] public float sameTime = 0.1f;
     [Range(0, 1)] public float volume = 1;
 
     public void Play(AudioSource audioSource) {

@@ -10,8 +10,6 @@ namespace UnityUtils {
 
   [RequireComponent(typeof(AudioSource))]
   public class AudioManager: PersistentSingleton<AudioManager> {
-    [SerializeField] SoundCategory[] categories;
-
     AudioSource audioSource;
     List<ActiveSound> activeSounds = new();
 
@@ -23,7 +21,7 @@ namespace UnityUtils {
     void Update() {
       float currentTime = Time.time;
       for (int i = activeSounds.Count - 1; i >= 0; --i) {
-        if (activeSounds[i].finishTime >= currentTime) {
+        if (activeSounds[i].finishTime <= currentTime) {
           activeSounds.RemoveAt(i);
         }
       }
@@ -36,19 +34,6 @@ namespace UnityUtils {
       return true;
     }
 
-    bool Play(string categoryName, string soundName) {
-      foreach (var category in categories) {
-        if ((category.name == categoryName) && category.Play(audioSource, soundName)) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    public static void PlaySound(string categoryName, string soundName) {
-      Instance.Play(categoryName, soundName);
-    }
-
     public static void PlaySound(SoundData soundData) {
       if (!soundData) {
         return;
@@ -57,7 +42,7 @@ namespace UnityUtils {
       if (Instance.RequestPlaySound(soundData)) {
         soundData.Play(Instance.audioSource);
         Instance.activeSounds.Add(new ActiveSound {
-          finishTime = Time.time + soundData.sound.length,
+          finishTime = Time.time + soundData.sound.length * soundData.sameTime,
           sound = soundData
         });
       }
