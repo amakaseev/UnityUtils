@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game {
+namespace UnityUtils {
 
   public class FXSpawner: MonoBehaviour {
     [System.Serializable]
