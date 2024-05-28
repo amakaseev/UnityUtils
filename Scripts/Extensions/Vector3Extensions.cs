@@ -1,8 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Globalization;
+using System.Linq;
+using UnityEngine;
 
 namespace UnityUtils {
 
   public static class Vector3Extensions {
+    /// <summary>
+    /// Sets x y z values of a Vector3 from string
+    /// </summary>
+    public static Vector3 FromString(this Vector3 vector, string input) {
+      input = input.Trim(new char[] { '(', ')'} );
+      var vals = input.Split(',').Select(s => s.Trim()).ToArray();
+      vector.x = float.Parse(vals[0], CultureInfo.InvariantCulture);
+      vector.y = float.Parse(vals[1], CultureInfo.InvariantCulture);
+      vector.z = float.Parse(vals[2], CultureInfo.InvariantCulture);
+      return vector;
+    }
     /// <summary>
     /// Sets any x y z values of a Vector3
     /// </summary>
