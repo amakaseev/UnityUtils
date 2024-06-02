@@ -13,8 +13,8 @@ namespace UnityUtils {
     AudioSource audioSource;
     List<ActiveSound> activeSounds = new();
 
-    public bool IsMusicMute => Instance.audioSource.mute;
-    public bool IsSoundMute => Instance.audioSource.mute;
+    public static bool IsMusicMute => Instance.audioSource.mute;
+    public static bool IsSoundMute => Instance.audioSource.mute;
 
     protected override void Awake() {
       base.Awake();
