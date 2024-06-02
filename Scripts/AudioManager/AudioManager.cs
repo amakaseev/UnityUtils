@@ -47,6 +47,14 @@ namespace UnityUtils {
         });
       }
     }
+    
+    public static void MuteMusic(bool mute) {
+      Instance.audioSource.mute = mute;
+    }
+
+    public static void MuteSFX(bool mute) {
+      Instance.audioSource.mute = mute;
+    }
   }
 
 }
