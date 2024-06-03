@@ -13,6 +13,9 @@ namespace UnityUtils {
     AudioSource audioSource;
     List<ActiveSound> activeSounds = new();
 
+    public static bool IsMusicMute => Instance.audioSource.mute;
+    public static bool IsSoundMute => Instance.audioSource.mute;
+
     protected override void Awake() {
       base.Awake();
       audioSource = GetComponent<AudioSource>();
@@ -46,6 +49,14 @@ namespace UnityUtils {
           sound = soundData
         });
       }
+    }
+    
+    public static void MusicMute(bool mute) {
+      Instance.audioSource.mute = mute;
+    }
+
+    public static void SoundMute(bool mute) {
+      Instance.audioSource.mute = mute;
     }
   }
 
