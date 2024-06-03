@@ -9,7 +9,7 @@ namespace UnityUtils {
   }
 
   [RequireComponent(typeof(AudioSource))]
-  public class AudioManager: PersistentSingleton<AudioManager> {
+  public class AudioManager: Singleton<AudioManager> {
     AudioSource audioSource;
     List<ActiveSound> activeSounds = new();
 
