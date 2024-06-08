@@ -32,6 +32,10 @@ namespace UnityUtils {
     public void SetFollow(Transform transform) {
       objectToFollow = transform;
     }
+
+    public void SetOffset(Vector3 offset) {
+      this.offset = offset;
+    }
     
   }
   
