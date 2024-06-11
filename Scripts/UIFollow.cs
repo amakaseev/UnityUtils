@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UnityUtils {
 
-  [RequireComponent(typeof(RectTransform))]
+  [RequireComponent(typeof(RectTransform)), ExecuteInEditMode]
   public class UIFollow: MonoBehaviour {
     [Header("Follow params")]
     [SerializeField] Transform objectToFollow;
@@ -26,7 +26,9 @@ namespace UnityUtils {
     }
 
     void LateUpdate() {
-      rt.anchoredPosition = mainCamera.WorldToCanvas(objectToFollow.position + offset, canvasRect);
+      if (objectToFollow) {
+        rt.anchoredPosition = mainCamera.WorldToCanvas(objectToFollow.position + offset, canvasRect);
+      }
     }
 
     public void SetFollow(Transform transform) {
